@@ -1,6 +1,6 @@
 # Gistats
 *Gistats* is a small library for generating **Statistics** on **Gists** using dictionaries<br>
-based on @sciencepal chess-com-box-py.
+based on [@sciencepal chess.com statistics](https://github.com/sciencepal/chess-com-box-py)
 
 # Installation
 ```
