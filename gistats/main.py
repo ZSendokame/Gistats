@@ -4,6 +4,7 @@ import requests
 
 from .util import sep
 
+
 class Login:
     def __init__(self, name, token, gist_id, filename='gistats.ini'):
         self.token = token
@@ -13,9 +14,8 @@ class Login:
 
     def update(self, statistics, separator='.', until=15):
         content = sep(statistics, separator, until)
-
         response = requests.patch(
-            url=f'https://api.github.com/gists/' + self.gist_id,
+            url='https://api.github.com/gists/' + self.gist_id,
             json={
                 'description': 'Updated on ' + str(date.today()),
                 'files': {
