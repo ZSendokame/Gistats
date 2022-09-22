@@ -3,8 +3,12 @@
 based on [@sciencepal chess.com statistics](https://github.com/sciencepal/chess-com-box-py)
 
 # Installation
-```
-pip install git+https://github.com/ZSendokame/gistats.git
+```python
+# Unstable
+pip install git+https://github.com/ZSendokame/Gistats.git
+
+# Stable
+pip install Gistats 
 ```
 
 # How to use
