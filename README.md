@@ -24,7 +24,7 @@ statistics = {
     'Total size': {'value': str(get_size()), 'emoji': '💾'},
     'Gistats Version': {'value': '1.0.0', 'emoji': '✔'}
 }
-gist = gistats.Login('gist-token', 'gist-id')
+gist = gistats.Login('name', 'gist-token', 'gist-id')
 
 # Separator is the character that will separate Statistic name from its value.
 # Until is the maximum of characters on the string, so it gets at the same column.
