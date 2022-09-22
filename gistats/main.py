@@ -5,9 +5,10 @@ import requests
 from .util import sep
 
 class Login:
-    def __init__(self, token, gist_id):
+    def __init__(self, token, gist_id, filename='gistats.ini'):
         self.token = token
         self.gist_id = gist_id
+        self.filename = filename
 
     def update(self, statistics, separator='.', until=15):
         content = sep(statistics, separator, until)
@@ -17,7 +18,7 @@ class Login:
             json={
                 'description': 'Updated on ' + str(date.today()),
                 'files': {
-                    'gistats.ini': {'content': content}
+                    self.filename: {'content': content}
                 }
             },
             auth=('ZSendokme', self.token)
