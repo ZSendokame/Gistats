@@ -2,18 +2,25 @@ from datetime import date
 
 import requests
 
-from .util import sep
 
-
-class Login:
-    def __init__(self, name, token, gist_id, filename='gistats.ini'):
+class Gist:
+    def __init__(self, name: str, token: str, gist_id: str, filename: str):
         self.token = token
         self.gist_id = gist_id
         self.filename = filename
         self.name = name
 
-    def update(self, statistics, separator='.', until=15):
-        content = sep(statistics, separator, until)
+    def separate(self, statistics: dict, delimiter: str, length: int) -> str:
+        result = ''
+
+        for stat, value in statistics.items():
+            result += stat + ' ' + (delimiter * (length - len(stat)))
+            result += f' {value}\n'
+
+        return result
+
+    def update(self, statistics, delimiter='.', length=15):
+        content = self.separate(statistics, delimiter, length)
         response = requests.patch(
             url='https://api.github.com/gists/' + self.gist_id,
             json={
