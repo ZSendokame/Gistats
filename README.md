@@ -25,13 +25,13 @@ def get_size():
     return size
 
 statistics = {
-    'Total size': {'value': str(get_size()), 'emoji': '💾'},
-    'Gistats Version': {'value': '1.0.0', 'emoji': '✔'}
+    'Total size': get_size(),
+    'Gistats Version': '2.0.1'
 }
-gist = gistats.Login('name', 'gist-token', 'gist-id')
+gist = gistats.Gist('name', 'gist-token', 'gist-id', 'filename')
 
 # Separator is the character that will separate Statistic name from its value.
 # Until is the maximum of characters on the string, so it gets at the same column.
-gist.update(statistics, separator=':', until=30)  # Return Status Code.
+gist.update(statistics, delimiter=' ', length=30)  # Return Status Code.
 # https://gist.github.com/ZSendokame/4637229c389a70083784eac6d4adc1f4
 ```
